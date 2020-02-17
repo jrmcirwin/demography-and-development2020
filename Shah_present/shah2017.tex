@@ -1,0 +1,204 @@
+\documentclass[ignorenonframetext,]{beamer}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\newif\ifbibliography
+\hypersetup{
+            pdftitle={Drought of Opportunities},
+            pdfauthor={Jesse McDevitt-Irwin},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+\usepackage{caption}
+% These lines are needed to make table captions work with longtable:
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight0.8\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+\AtBeginPart{
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \let\insertsectionnumber\relax
+    \let\sectionname\relax
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+\title{Drought of Opportunities}
+\subtitle{Manisha Shah and Bryce Steinburg, Journal of Political Economy (2017)}
+\author{Jesse McDevitt-Irwin}
+\date{13 February, 2020}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{\# Summary}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  The authors explore the ambiguous effect of wages on human capital
+  formation in children, using rainfall as an instrument.
+\item
+  They find that exposure to rainfall ``shocks'' in early childhood
+  leads to an increase in human capital.
+\item
+  For exposure to rainfall shocks after the age of 5, they find the
+  opposite effect: rainfall leads to a decrease in human capital
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{\includegraphics{shah2017_files/figure-beamer/authors model-1.pdf}}
+
+\begin{block}{Model}
+
+\[ U(c_1,c_2,c_3) = u_1(c_q)+ \beta u_2(c_2) + \beta^2 u(e_3) \]
+\[ c_1=w_1 h \\
+ c_2 = w_2[h+ (1-s_2)e_2]\]
+
+\[ e_1 = 0 \\
+e_2 = f_2(c_1) \\
+e_3 = f_3(e_2,c_2,s_2)
+\]
+
+No choices in period one, restrict attention to periods 2 and 3. These
+can be thought of as early childhood, and post age 5.
+
+\begin{longtable}[]{@{}l@{}}
+\toprule
+\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\includegraphics{shah2017_files/figure-beamer/reality-1.pdf}\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{block}
+
+\begin{block}{Effect of School-age Wages on Human Capital}
+
+The authors solve for the effect of wages on schooling in an interior
+solution:
+
+(1)∂s2*∂w2∝−e2(∂u2∂c2+β∂f3∂c2)︷Substitution Effect (−)−{[}h+(1−s2*)e2{]}w2e2∂2u2∂c22︷Income Effect (+)+{[}h+(1−s2*)e2{]}β∂Θ∂c2︷Effect of c2 on Net Impact of Schooling.
+
+\textless{}
+
+We see that the net effect of school-age wages on schooling is
+ambiguous.
+
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{block}{Data}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  The authors take the distribution of rainfall by district, and
+  classify rainfall (drought) ``shocks'' as district years which place
+  in the top (bottom) quintile of the district-distribution.
+\end{itemize}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Data on cognitive tests, 2005-09, for 2 million children aged 5-16.
+  Includes children not enrolled at school. Scores are constructed as
+  the sum of correct answers on each test.
+\end{itemize}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Data from 2004-08 on wages and employment, merged with rainfall on the
+  district level. Rainfall is positively related to wages.
+\end{itemize}
+
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{block}{Empirical Specification}
+
+\protect\hypertarget{df18}{}{(5)Sijty=α+β1δj,y+β2δj,y−1+ζθj,t+γj+ɸt+ψy+ϵijty,}where
+\(S_{ijty}\) is the measure of human capital or schooling for student
+\(i\) in district \(j\) born in year \(t\) and surveyed in year \(y\).
+\(\theta\) is a vector of early-childhood rainfall shocks.
+
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{block}{Results}
+
+\begin{figure}
+\includegraphics[width=18.07in]{/home/friend/Téléchargements/tb2.1} \caption{ }\label{fig:image-ref-for-in-text}
+\end{figure}
+
+\end{block}
+
+\end{frame}
+
+\end{document}

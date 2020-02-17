@@ -1,0 +1,144 @@
+---
+title: "Drought of Opportunities"
+subtitle: "Manisha Shah and Bryce Steinburg, JPE (2017)"
+header-includes:
+author: Jesse McDevitt-Irwin
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: ioslides_presentation
+widescreen: TRUE
+font-family: "Times New Roman"
+always_allow_html: true
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,message=FALSE,cache = FALSE, warning = FALSE, fig.align = "center")
+```
+#Summary
+
+
+## Summary
+
+
+* The authors explore the ambiguous effect of wages on human capital formation in children, using rainfall as an instrument. 
+
+* They find:
+    * Increased rainfall in early childhood leads to an *increase* in human capital.
+    * Increased rainfall after the age of five leads to a *decrease* human capital.
+
+----
+
+```{r authors model,fig.height = 6, fig.width = 10, fig.cap = "Simple (Optimistic) Causal Graph"}
+rm(list = ls(all.names = TRUE))
+library("DiagrammeR")
+mermaid("graph LR; A[Rainfall]-->B[Wages];B-->C[Child Labor]; C-->D[Schooling]; D-->F[HK]; B-->F")
+```	
+
+## Model
+
+$$ U(c_1,c_2,c_3) = u_1(c_1)+ \beta u_2(c_2) + \beta^2 V(e_3) $$
+$$ c_1=w_1 h \\
+ c_2 = w_2[h+ (1-s_2)e_2]$$
+
+$$ e_1 = 0 \\
+e_2 = f_2(c_1) \\
+e_3 = f_3(e_2,c_2,s_2)
+$$
+
+where $c_i$ is consumption, $e_i$ is child human capital, $h$ is parental human capital, $w_i$ is wages, $s_2$ is schooling. 
+
+Parents balance the marginal effect of schooling on future income with the current value of consumption.
+
+----
+### Effect of School-age Wages on Human Capital Formation
+
+<span class="formula-display" id="df11"><math display="block" overflow="scroll" altimg="eq-00031.gif"><mrow><mtable displaystyle="true"><mlabeledtr><mtd><mtext>(1)</mtext></mtd><mtd><mrow><mtable columnalign="right left" columnspacing="0.28em" displaystyle="true"><mtr><mtd><mfrac><mrow><mo>∂</mo><msubsup><mrow><mi>s</mi></mrow><mrow><mn>2</mn></mrow><mrow><mo>*</mo></mrow></msubsup></mrow><mrow><mo>∂</mo><msub><mrow><mi>w</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow></mfrac><mo>∝</mo></mtd><mtd><mo>−</mo><mover><mrow><mover><mrow><msub><mrow><mi>e</mi></mrow><mrow><mn>2</mn></mrow></msub><mrow><mo>(</mo><mrow><mfrac><mrow><mo>∂</mo><msub><mrow><mi>u</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow><mrow><mo>∂</mo><msub><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow></mfrac><mo>+</mo><mi>β</mi><mfrac><mrow><mo>∂</mo><msub><mrow><mi>f</mi></mrow><mrow><mn>3</mn></mrow></msub></mrow><mrow><mo>∂</mo><msub><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow></mfrac></mrow><mo>)</mo></mrow></mrow><mrow><mo>︷</mo></mrow></mover></mrow><mrow><mi>Substitution Effect (−)</mi></mrow></mover><mo>−</mo><mover><mrow><mover><mrow><mrow><mo stretchy="false">[</mo><mrow><mi>h</mi><mo>+</mo><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>−</mo><msubsup><mrow><mi>s</mi></mrow><mrow><mn>2</mn></mrow><mrow><mo>*</mo></mrow></msubsup></mrow><mo stretchy="false">)</mo></mrow><msub><mrow><mi>e</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow><mo stretchy="false">]</mo></mrow><msub><mrow><mi>w</mi></mrow><mrow><mn>2</mn></mrow></msub><msub><mrow><mi>e</mi></mrow><mrow><mn>2</mn></mrow></msub><mfrac><mrow><msup><mrow><mo>∂</mo></mrow><mrow><mn>2</mn></mrow></msup><msub><mrow><mi>u</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow><mrow><mo>∂</mo><msubsup><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></mfrac></mrow><mrow><mo>︷</mo></mrow></mover></mrow><mrow><mi>Income Effect (+)</mi></mrow></mover></mtd></mtr><mtr><mtd></mtd><mtd><mo>+</mo><mover><mrow><mover><mrow><mrow><mo stretchy="false">[</mo><mrow><mi>h</mi><mo>+</mo><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>−</mo><msubsup><mrow><mi>s</mi></mrow><mrow><mn>2</mn></mrow><mrow><mo>*</mo></mrow></msubsup></mrow><mo stretchy="false">)</mo></mrow><msub><mrow><mi>e</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow><mo stretchy="false">]</mo></mrow><mi>β</mi><mfrac><mrow><mo>∂</mo><mi mathvariant="normal">Θ</mi></mrow><mrow><mo>∂</mo><msub><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow></mfrac></mrow><mrow><mo>︷</mo></mrow></mover></mrow><mrow><mi>Effect of </mi><msub><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msub><mi> on Net Impact of Schooling</mi></mrow></mover><mn>.</mn></mtd></mtr></mtable></mrow></mtd></mlabeledtr></mtable></mrow></math></span></p><p><
+
+
+The effect of wages in early-childhood is clear, but the effect of school-age wages on human capital is ambiguous.
+
+## Data
+
+* Rainfall by year by month:
+    * The authors take the distribution of rainfall by district over 1975-2008, and classify rainfall "shocks" as district years which place in the top quintile of the district-specific distribution.
+
+* Repeated cross-section of cognitive tests, 2005-09, for 2 million children aged 5-16. Includes children not enrolled at school.
+
+* Data from 2004-08 on wages and employment, merged with rainfall on the district level. Rainfall is positively related to wages.
+
+## Empirical Specification for School-Age Effect
+
+<span class="formula-display" id="df18"><math display="block" overflow="scroll" altimg="eq-00046.gif"><mrow><mtable displaystyle="true"><mlabeledtr><mtd><mtext>(5)</mtext></mtd><mtd><mrow><msub><mrow><mi>S</mi></mrow><mrow><mi mathvariant="italic">ijty</mi></mrow></msub><mo>=</mo><mi>α</mi><mo>+</mo><msub><mrow><mi>β</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mi>δ</mi></mrow><mrow><mi>j</mi><mo>,</mo><mi>y</mi></mrow></msub><mo>+</mo><msub><mrow><mi>β</mi></mrow><mrow><mn>2</mn></mrow></msub><msub><mrow><mi>δ</mi></mrow><mrow><mi>j</mi><mo>,</mo><mi>y</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mi>ζ</mi><msub><mrow><mi>θ</mi></mrow><mrow><mi>j</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>+</mo><msub><mrow><mi>γ</mi></mrow><mrow><mi>j</mi></mrow></msub><mo>+</mo><msub><mrow><mi>ɸ</mi></mrow><mrow><mi>t</mi></mrow></msub><mo>+</mo><msub><mrow><mi>ψ</mi></mrow><mrow><mi>y</mi></mrow></msub><mo>+</mo><msub><mrow><mi>ϵ</mi></mrow><mrow><mi mathvariant="italic">ijty</mi></mrow></msub><mo>,</mo></mrow></mtd></mlabeledtr></mtable></mrow></math></span>where $S_{ijty}$ is the measure of human capital or schooling for student $i$ in district $j$ born in year $t$ and surveyed in year $y$. $\theta$ is a vector of early-childhood rainfall shocks.
+
+
+Identification relies on the exogeneity of rainfall-shocks. 
+
+The estimation for the effect of early childhood shocks is the same, except in not including contemporaneous rainfall $\delta$.
+
+
+# Results
+
+```{r image-ref-for-in-text}
+knitr::include_graphics("/home/friend/Téléchargements/tb2.1.jpeg")
+```
+----
+### Effect of School-age Rainfall on Educational Attainment
+```{r}
+knitr::include_graphics("/home/friend/Téléchargements/tb2.2.jpeg")
+```
+----
+
+### Effect of School-age Rainfall on Educational Attainment
+```{r}
+knitr::include_graphics("/home/friend/Téléchargements/tb3full.jpeg")
+```
+----
+
+### Effect of School-age Rainfall on Child Labor and School Attendance
+```{r}
+knitr::include_graphics("/home/friend/Téléchargements/fg1_online.jpeg")
+```
+----
+
+### Effect of School-age Rainfall on Dropouts
+```{r}
+knitr::include_graphics("/home/friend/Téléchargements/tb4.1.jpeg")
+```
+----
+
+### Effect of Early Childhood Rainfall on Educational Outcomes
+```{r}
+knitr::include_graphics("/home/friend/Téléchargements/fg2_online.jpeg")
+```
+----
+
+### Long-Term Effect of Rainfall on Years-of-Schooling
+
+## Alternative Mechanisms
+
+----
+```{r reality, fig.caption = "Complex (Pessimistic) Causal Graph"}
+rm(list = ls(all.names = TRUE))
+library("DiagrammeR")
+mermaid("graph LR; A[Rainfall]-->B[Wages];B-->C[Child Labor]; C-->D[Schooling]; D-->F[HK]; B-->F; A-->G[Health]; A-->H[Teaching]; A-->I[Migration]; G-->F; H-->F;I-->F")
+```
+
+---
+
+## Alternative Mechanisms
+
+The authors address:
+
+* The effect of school lunches;
+    * Children attend school for free-lunch, which would be less valuable in rainy years.
+* The direct impact of rainfall on health;
+    * Malaria, diarrhea and flooding.
+* The relationship of rainfall on teacher attendance; and,
+* The possibility of selective migration.
+
+## Comments
+
+* The exogeneity of rainfall: why use fixed effects?
+* Temperature-precipitation relationship.
+* Timing and intensity of rainfall.
+* Multiple dimensions of human capital: rainfall changes the relative price of nutrition vs education.
